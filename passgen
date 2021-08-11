@@ -3,5 +3,5 @@ $RandomPassword= get-random -minimum 100 -maximum 999
 $CombinePassword= $basepassword + $RandomPassword
  
 #Setting Temp Password
-set-adaccountpassword $ADUser -NewPassword (ConvertTo-SecureString -AsPlainText 'default password-' -Force) -Reset -PassThru | 
-set-aduser -ChangePasswordAtLogon $true
+set-adaccountpassword $ADUser -NewPassword (ConvertTo-SecureString -AsPlainText $CombinePassword -Force) -Reset -PassThru | 
+set-aduser -ChangePasswordAtLogon $true 
